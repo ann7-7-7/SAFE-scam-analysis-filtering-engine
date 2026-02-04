@@ -1,18 +1,43 @@
-# Appendix Evidence
+# S.A.F.E. – Appendices
 
-This folder contains supporting evidence referenced in the report appendices:
+This folder contains supplementary materials referenced in the main project report.
 
-- Wireframe screenshots
-- Figma exports
-- User flow diagrams
-- GitHub Kanban board screenshots
-- Supervisor feedback evidence
-- Ethics screenshots
-- Communication records (anonymised)
+Appendices are provided for assessment transparency and evidence of professional project practice.
 
-Suggested filenames:
-- Wireframe_Input.png
-- Wireframe_Result.png
-- KanbanBoard_Midpoint.png
-- Figma_UserFlow.png
-- EthicsSubmission.png
+---
+
+## Contents
+
+### Appendix A – Project Proposal Poster
+- Original approved proposal poster submitted at project start.
+
+### Appendix B – Project Management Evidence
+- Screenshots of Kanban boards
+- Sprint plans
+- Milestone tracking
+
+### Appendix C – Ethics Approval Documentation
+- Ethics application form (PDF)
+- Participant information sheet
+- Consent form template
+
+### Appendix D – Risk Register
+- Full project risk register and mitigation table.
+
+### Appendix E – External Communications
+- Anonymised supervision emails or feedback notes.
+
+### Appendix F – Dataset Sources
+- Description of public phishing/scam datasets used.
+
+### Appendix G – Proof-of-Concept Evidence
+- Screenshots of early prototype interface
+- Console output
+- API tests
+- Model inference examples
+
+---
+
+Each appendix item is explicitly referenced in the main report text using phrases such as:
+
+> "See Appendix C for ethics approval documentation."
