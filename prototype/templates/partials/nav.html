@@ -1,0 +1,13 @@
+{# Shared site navigation. request is available in Flask templates. #}
+<nav class="site-nav" aria-label="Main navigation">
+    <a class="site-nav__brand" href="{{ url_for('index') }}">S.A.F.E.</a>
+    <ul class="site-nav__links">
+        <li><a href="{{ url_for('index') }}" class="site-nav__link{% if request.path == '/' %} site-nav__link--active{% endif %}">Home</a></li>
+        <li><a href="{{ url_for('dataset') }}" class="site-nav__link{% if request.path == '/dataset' %} site-nav__link--active{% endif %}">Dataset</a></li>
+        <li><a href="{{ url_for('evaluation') }}" class="site-nav__link{% if request.path == '/evaluation' %} site-nav__link--active{% endif %}">Evaluation</a></li>
+        <li><a href="{{ url_for('about') }}" class="site-nav__link{% if request.path == '/about' %} site-nav__link--active{% endif %}">About</a></li>
+        <li class="site-nav__item--theme">
+            <button type="button" class="site-nav__theme" id="theme-toggle" aria-pressed="false" aria-label="Toggle light or dark colour theme">🌙 Dark / ☀️ Light</button>
+        </li>
+    </ul>
+</nav>

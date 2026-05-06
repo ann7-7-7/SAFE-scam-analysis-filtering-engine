@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact S.A.F.E</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body class="checker-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--checker page--contact-safe">
+    {% set active_page = 'contact' %}
+    {% set check_href = url_for('checker') ~ '#checker-tool' %}
+    {% include "partials/site_header.html" %}
+    <main class="contact-safe__main" id="main-content">
+        <div class="header__titles contact-intro">
+            <h1>Contact S.A.F.E</h1>
+            <p class="tagline">Questions, feedback, or project enquiries? Use this page to contact the S.A.F.E project team.</p>
+        </div>
+
+        <p class="contact-safe__privacy-note">Please do not submit passwords, OTPs, bank details, or sensitive personal information.</p>
+        <section class="contact-safe__grid">
+            <section class="contact-safe__card contact-safe__card--form">
+                <h2>Send a message</h2>
+                <form id="contact-form" class="contact-safe__form" novalidate>
+                    <label for="contact-topic">Topic</label>
+                    <select id="contact-topic" name="topic">
+                        <option>General question</option>
+                        <option>Website feedback</option>
+                        <option>Scam example</option>
+                        <option>Safety guidance</option>
+                        <option>Project enquiry</option>
+                    </select>
+
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" name="name" type="text" placeholder="Your name">
+
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" name="email" type="email" placeholder="your.email@example.com">
+
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here…"></textarea>
+
+                    <button type="submit" class="button-primary button-primary--large contact-safe__submit">Send message</button>
+                    <p id="contact-success" class="contact-safe__success" hidden>Thank you. Your message has been received for demonstration purposes.</p>
+                </form>
+            </section>
+
+            <section class="contact-safe__aside">
+                <section class="contact-safe__card">
+                    <h2>General enquiries</h2>
+                    <p>For project-related questions, technical feedback, or awareness support, use the contact form.</p>
+                </section>
+
+                <section class="contact-safe__card">
+                    <h2>Report a suspicious message</h2>
+                    <p>If you received a suspicious message, use the S.A.F.E Checker first and then report phishing through trusted official channels.</p>
+                    <div class="contact-safe__actions">
+                        <a class="safe-home__btn safe-home__btn--primary" href="{{ url_for('checker') }}#checker-tool">Open S.A.F.E Checker</a>
+                        <a class="safe-home__btn safe-home__btn--secondary" href="https://www.gov.uk/report-suspicious-emails-websites-phishing" target="_blank" rel="noopener">Report phishing (GOV.UK)</a>
+                    </div>
+                </section>
+
+                <section class="contact-safe__card contact-safe__note">
+                    <h2>Privacy reminder</h2>
+                    <p>Do not share real passwords, OTPs, bank details, private documents, or sensitive personal information through this form.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="contact-safe__quick">
+            <h2>Quick help</h2>
+            <div class="contact-safe__quick-grid">
+                <article>
+                    <h3>Check a message</h3>
+                    <p>Paste suspicious text into the S.A.F.E Checker and receive a risk score, explanation, and safety advice.</p>
+                    <a class="safe-home__btn safe-home__btn--secondary" href="{{ url_for('checker') }}#checker-tool">Open S.A.F.E Checker</a>
+                </article>
+                <article>
+                    <h3>Learn scam types</h3>
+                    <p>Explore common scams such as fake jobs, crypto scams, parcel scams, OTP scams, and impersonation.</p>
+                    <a class="safe-home__btn safe-home__btn--secondary" href="{{ url_for('dataset') }}">View Scam Types</a>
+                </article>
+                <article>
+                    <h3>Understand safe actions</h3>
+                    <p>Learn what to do before clicking links, sending money, or sharing security codes.</p>
+                    <a class="safe-home__btn safe-home__btn--secondary" href="{{ url_for('dataset') }}#safety-guide">View Safety Advice</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-safe__faq">
+            <h2>FAQ</h2>
+            <div class="contact-safe__faq-list">
+                <details class="contact-safe__faq-item">
+                    <summary>Can I paste a real suspicious message?</summary>
+                    <p>You can paste suspicious text for checking, but avoid including passwords, OTPs, bank details, private documents, or sensitive personal information.</p>
+                </details>
+                <details class="contact-safe__faq-item">
+                    <summary>Does S.A.F.E store my message?</summary>
+                    <p>No. S.A.F.E is designed to analyse messages temporarily and not store user-submitted message content by default.</p>
+                </details>
+                <details class="contact-safe__faq-item">
+                    <summary>Is S.A.F.E always correct?</summary>
+                    <p>No. S.A.F.E provides risk guidance only. Always verify suspicious messages through official channels.</p>
+                </details>
+                <details class="contact-safe__faq-item">
+                    <summary>Can I check WhatsApp, Telegram, SMS and email messages?</summary>
+                    <p>Yes. S.A.F.E is designed to help analyse suspicious messages from SMS/Text Message, WhatsApp, Telegram, Email, Social Media DMs and other sources.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="contact-safe__cta">
+            <h2>Ready to check a suspicious message?</h2>
+            <p>Open the S.A.F.E Checker and review the warning signs before clicking, replying, downloading files, or sending money.</p>
+            <a class="safe-home__btn safe-home__btn--primary" href="{{ url_for('checker') }}#checker-tool">Check a message</a>
+        </section>
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script>
+(() => {
+    const form = document.getElementById("contact-form");
+    const note = document.getElementById("contact-success");
+    if (!form || !note) return;
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        note.hidden = false;
+        form.reset();
+        setTimeout(() => {
+            note.hidden = true;
+        }, 3000);
+    });
+})();
+</script>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

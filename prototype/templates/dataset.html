@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scam Types &amp; Safety Guide – S.A.F.E.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body class="checker-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--checker page--guide">
+    {% set active_page = 'dataset' %}
+    {% set check_href = url_for('checker') ~ '#checker-tool' %}
+    {% include "partials/site_header.html" %}
+    <main class="guide-main" id="main-content">
+        <div class="header__titles guide-intro">
+            <h1>Scam Types &amp; Safety Guide</h1>
+            <p class="tagline">Learn how common scams work, what warning signs to look for, and how to stay safe before clicking, replying or sending money.</p>
+            <p class="tagline checker-note">Examples are synthetic and used for awareness and testing. Do not paste real personal or sensitive information into the checker.</p>
+        </div>
+
+        <section class="guide-tools">
+            <input id="guide-search" class="guide-search" type="search" placeholder="Search scam types, warning signs or examples..." aria-label="Search scam types">
+            <div class="guide-chips" aria-label="Category filters">
+                <button class="guide-chip guide-chip--active" data-filter="all" type="button">All</button>
+                <button class="guide-chip" data-filter="money" type="button">Money Requests</button>
+                <button class="guide-chip" data-filter="links" type="button">Suspicious Links</button>
+                <button class="guide-chip" data-filter="impersonation" type="button">Impersonation</button>
+                <button class="guide-chip" data-filter="crypto" type="button">Crypto</button>
+                <button class="guide-chip" data-filter="jobs" type="button">Jobs</button>
+                <button class="guide-chip" data-filter="family" type="button">Family Emergency</button>
+                <button class="guide-chip" data-filter="security" type="button">Account Security</button>
+                <button class="guide-chip" data-filter="marketplace" type="button">Marketplace</button>
+                <button class="guide-chip" data-filter="safe" type="button">Safe Examples</button>
+            </div>
+        </section>
+
+        <section class="guide-grid" id="safety-guide">
+            <article class="guide-card" data-tags="crypto money links">
+                <h2>Crypto / Investment Scam</h2>
+                <p>Scammers promise fast returns and guaranteed profits to push risky transfers.</p>
+                <ul><li>Guaranteed return language</li><li>Urgent “limited slot” claims</li><li>Unknown trading links</li><li>Pressure to send crypto first</li></ul>
+                <p class="guide-advice">Safety advice: Never invest based on unsolicited messages. Verify through FCA-regulated sources.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Invest £250 today and receive £2,000 in 48 hours. Join our VIP crypto signal group now.">Try example in S.A.F.E Checker</button><a href="https://www.fca.org.uk/scamsmart" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (7)</summary><ol class="guide-examples"><li><b>Message:</b> Your account is approved for a private crypto pump group. Deposit £300 now.<br><b>Source:</b> Telegram · <b>Expected risk:</b> Critical · <b>Red flags:</b> pressure, guaranteed gains.</li><li><b>Message:</b> Daily 20% profit strategy, no loss guaranteed. Send USDT wallet screenshot.<br><b>Source:</b> WhatsApp · <b>Expected risk:</b> Critical · <b>Red flags:</b> unrealistic rewards.</li><li><b>Message:</b> FCA-authorised partner here, start with £150 and double by weekend.<br><b>Source:</b> Email · <b>Expected risk:</b> High · <b>Red flags:</b> authority misuse.</li><li><b>Message:</b> New coin presale ends tonight. Pay by bank transfer to lock allocation.<br><b>Source:</b> Social Media DM · <b>Expected risk:</b> High · <b>Red flags:</b> urgency + transfer.</li><li><b>Message:</b> I made £5k this week. I can mentor you if you fund this wallet now.<br><b>Source:</b> Other · <b>Expected risk:</b> High · <b>Red flags:</b> social proof tactic.</li><li><b>Message:</b> Withdrawals are blocked until you pay a security fee of £95.<br><b>Source:</b> Email · <b>Expected risk:</b> Critical · <b>Red flags:</b> release fee.</li><li><b>Message:</b> Trading bot hacked. Send £120 to restore your earnings access.<br><b>Source:</b> Telegram · <b>Expected risk:</b> High · <b>Red flags:</b> fear + payment.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="crypto impersonation social">
+                <h2>Pig Butchering Scam</h2>
+                <p>A scammer builds trust over time, then pushes fake investments and larger transfers.</p>
+                <ul><li>Sudden financial advice from new contact</li><li>Emotional bonding before money talk</li><li>Private app migration</li><li>Escalating deposit requests</li></ul>
+                <p class="guide-advice">Safety advice: Never mix online relationship trust with investment decisions.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="I care about your future. Start with £200 in this platform and I will guide every trade.">Try example in S.A.F.E Checker</button><a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (7)</summary><ol class="guide-examples"><li><b>Message:</b> We have chatted for weeks; trust me and invest before market opens.<br><b>Source:</b> WhatsApp · <b>Expected risk:</b> High · <b>Red flags:</b> trust + urgency.</li><li><b>Message:</b> My uncle is insider at exchange, tonight is guaranteed rise.<br><b>Source:</b> Telegram · <b>Expected risk:</b> Critical · <b>Red flags:</b> insider claim.</li><li><b>Message:</b> Small test done, now send £1,000 for real profit phase.<br><b>Source:</b> Social Media DM · <b>Expected risk:</b> Critical · <b>Red flags:</b> escalating amount.</li><li><b>Message:</b> Don’t tell family, they won’t understand this strategy.<br><b>Source:</b> WhatsApp · <b>Expected risk:</b> High · <b>Red flags:</b> isolation pressure.</li><li><b>Message:</b> Withdrawal failed due tax lock. Pay £180 unlock charge now.<br><b>Source:</b> Email · <b>Expected risk:</b> Critical · <b>Red flags:</b> unlock fee.</li><li><b>Message:</b> You are selected for inner circle, transfer before slot closes.<br><b>Source:</b> Telegram · <b>Expected risk:</b> High · <b>Red flags:</b> exclusivity pressure.</li><li><b>Message:</b> Share your screen so I can configure your exchange wallet.<br><b>Source:</b> Other · <b>Expected risk:</b> High · <b>Red flags:</b> account takeover risk.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="jobs money">
+                <h2>Fake Job / Like-and-Subscribe Scam</h2>
+                <p>Messages offer easy online tasks with high pay, then request deposits or account details.</p>
+                <ul><li>No interview or verification</li><li>“No experience needed” + high pay</li><li>Task groups on Telegram</li><li>Requests for upfront fee</li></ul>
+                <p class="guide-advice">Safety advice: Legitimate employers do not ask candidates to pay first.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Like videos for 30 minutes and earn £120 daily. Join Telegram trainer and pay activation fee.">Try example in S.A.F.E Checker</button><a href="#" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (8)</summary><ol class="guide-examples"><li><b>Message:</b> Earn £600/week from home by rating products, start immediately.<br><b>Source:</b> WhatsApp · <b>Expected risk:</b> High · <b>Red flags:</b> unrealistic pay.</li><li><b>Message:</b> Deposit £40 training token to unlock premium tasks.<br><b>Source:</b> Telegram · <b>Expected risk:</b> High · <b>Red flags:</b> fee before work.</li><li><b>Message:</b> Subscribe to 10 channels and receive £10 each instantly.<br><b>Source:</b> Social Media DM · <b>Expected risk:</b> Medium · <b>Red flags:</b> task bait.</li><li><b>Message:</b> HR selected your CV, send bank login for salary setup.<br><b>Source:</b> Email · <b>Expected risk:</b> Critical · <b>Red flags:</b> credential request.</li><li><b>Message:</b> Click app link to begin paid likes program now.<br><b>Source:</b> SMS/Text Message · <b>Expected risk:</b> High · <b>Red flags:</b> suspicious app link.</li><li><b>Message:</b> No resume needed, just transfer refundable £25 verification.<br><b>Source:</b> Other · <b>Expected risk:</b> High · <b>Red flags:</b> fake verification fee.</li><li><b>Message:</b> We pay in crypto only, send wallet and seed phrase check.<br><b>Source:</b> Telegram · <b>Expected risk:</b> Critical · <b>Red flags:</b> seed phrase theft.</li><li><b>Message:</b> Complete 3 simple clicks per day for £90/hour guaranteed.<br><b>Source:</b> WhatsApp · <b>Expected risk:</b> Critical · <b>Red flags:</b> impossible earnings.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="impersonation money security">
+                <h2>HMRC / Tax Refund Scam</h2>
+                <p>Impersonates HMRC with tax refund or debt threats to force rapid action.</p>
+                <ul><li>Fake GOV-style links</li><li>Legal action pressure</li><li>Unexpected refund claim</li><li>Sensitive data request</li></ul>
+                <p class="guide-advice">Safety advice: Use official GOV.UK channels you type yourself.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="HMRC notice: unpaid tax. Pay within 24 hours to avoid legal action.">Try example in S.A.F.E Checker</button><a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/reporting-fraudulent-emails" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>HMRC refund pending, confirm card details now.<br><b>Source:</b> Email · <b>Risk:</b> High · <b>Flags:</b> card request.</li><li>Tax debt warning, account will be frozen tonight.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> Critical · <b>Flags:</b> fear urgency.</li><li>GOV support portal update required: enter NI number here.<br><b>Source:</b> Email · <b>Risk:</b> High · <b>Flags:</b> personal data lure.</li><li>Final notice from HMRC legal department, pay now.<br><b>Source:</b> Other · <b>Risk:</b> Critical · <b>Flags:</b> authority pressure.</li><li>Claim £420 refund fee-free by clicking this secure link.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High · <b>Flags:</b> spoofed link.</li><li>Agent available now for your tax release charge.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High · <b>Flags:</b> fake support.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="money impersonation">
+                <h2>Amazon / Gift Card Scam</h2>
+                <p>Pretends to be Amazon support and pushes gift card purchases or fake refund confirmations.</p>
+                <ul><li>Gift card payment request</li><li>Unusual account warning</li><li>Phone call urgency</li><li>Refund release fee</li></ul>
+                <p class="guide-advice">Safety advice: Real support does not request payment in gift cards.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Amazon security detected fraud. Buy £200 gift cards to verify account ownership now.">Try example in S.A.F.E Checker</button><a href="https://www.ncsc.gov.uk/collection/phishing-scams" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>Account suspended, call now and keep gift card receipt ready.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Refund approved after £50 processing voucher.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Prime renewal failed, pay using Apple gift cards only.<br><b>Source:</b> WhatsApp · <b>Risk:</b> Critical.</li><li>Fraud team requests card serial numbers to unblock order.<br><b>Source:</b> Telegram · <b>Risk:</b> Critical.</li><li>Parcel held by marketplace fraud desk, send payment code.<br><b>Source:</b> Other · <b>Risk:</b> High.</li><li>Confirm account with one-time gift voucher payment.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="links money impersonation">
+                <h2>Parcel Delivery Scam</h2>
+                <p>Uses delivery brands and tiny fees to get card details or credentials.</p>
+                <ul><li>Failed delivery claim</li><li>Small re-delivery fee</li><li>Shortened/odd links</li><li>Urgent deadline</li></ul>
+                <p class="guide-advice">Safety advice: Track parcels from the retailer app/site, not random texts.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Your parcel is waiting. Pay £1.79 redelivery fee within 2 hours.">Try example in S.A.F.E Checker</button><a href="https://www.gov.uk/report-suspicious-emails-websites-phishing" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (7)</summary><ol class="guide-examples"><li>Royal delivery failed, confirm address now via secure parcel portal.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Locker item expires today, pay release fee immediately.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Courier customs charge due. Click to avoid return.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Your package photo proof available after account verify.<br><b>Source:</b> Social Media DM · <b>Risk:</b> Medium.</li><li>Delivery support asks for card to retry route.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li><li>Incorrect postcode detected, enter bank card now.<br><b>Source:</b> Other · <b>Risk:</b> Critical.</li><li>Rebook slot by paying £0.99 handling charge.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="family impersonation money">
+                <h2>Family Emergency / Impersonation Scam</h2>
+                <p>Impersonates a relative and requests urgent transfers using emotional pressure.</p>
+                <ul><li>“New number” story</li><li>Cannot talk excuse</li><li>Hospital/accident context</li><li>Immediate transfer request</li></ul>
+                <p class="guide-advice">Safety advice: Verify via known number before sending money.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Dad this is my new number, I am stuck and need £450 now, please transfer quickly.">Try example in S.A.F.E Checker</button><a href="https://www.citizensadvice.org.uk/consumer/scams/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (7)</summary><ol class="guide-examples"><li>Mum phone broken, can you pay my bill today?<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>I had accident and cannot speak, send money now.<br><b>Source:</b> WhatsApp · <b>Risk:</b> Critical.</li><li>Use this account, my banking app is locked.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li><li>I am with police, need urgent transfer for release.<br><b>Source:</b> Other · <b>Risk:</b> Critical.</li><li>Please do not call anyone, just help quickly.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li><li>Stuck abroad, need airport fee now please.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Send £300 and I will explain later.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="security money links">
+                <h2>Device Compromise / Extortion Scam</h2>
+                <p>Scammers claim that your phone, account or device has been hacked or infected. They may demand money, pressure you to download software, or threaten that your data will be leaked or your device will be blocked.</p>
+                <ul><li>Claims your phone or device is hacked</li><li>Demands payment to fix or protect the device</li><li>Asks you to download or install unknown software</li><li>Uses fear about leaked data, blocked accounts or malware</li><li>Gives urgent instructions from an unknown sender</li></ul>
+                <p class="guide-advice">Safety advice: Do not send money or download unknown files. Use trusted antivirus or official device support channels if you are concerned.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Your phone is hacked. Send £100 to save your device now.">Try example in S.A.F.E Checker</button><a href="https://www.ncsc.gov.uk/collection/phishing-scams" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (5)</summary><ol class="guide-examples"><li>Your phone is hacked. Send £100 to save your device immediately.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> Critical.</li><li>Download this security update now or your account will be blocked.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Your camera has been compromised. Pay now to prevent leaked footage.<br><b>Source:</b> Telegram · <b>Risk:</b> Critical.</li><li>Your files will be deleted unless you pay the device recovery fee.<br><b>Source:</b> Email · <b>Risk:</b> Critical.</li><li>Malware detected on your phone. Install this app and confirm payment to secure it.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="security impersonation money">
+                <h2>Bank / OTP Scam</h2>
+                <p>Pretends to be bank security and asks for OTP, password, or urgent account verification.</p>
+                <ul><li>Account locked warning</li><li>OTP request</li><li>Fake verification link</li><li>Impersonated bank name</li></ul>
+                <p class="guide-advice">Safety advice: Banks never ask OTP/password via unsolicited message.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Security alert: your account is locked. Enter OTP now to stop suspension.">Try example in S.A.F.E Checker</button><a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (8)</summary><ol class="guide-examples"><li>Unusual login from abroad, verify identity now.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> Critical.</li><li>Provide one-time code to cancel pending transfer.<br><b>Source:</b> WhatsApp · <b>Risk:</b> Critical.</li><li>Fraud desk calling, share passcode to secure account.<br><b>Source:</b> Other · <b>Risk:</b> Critical.</li><li>Update online banking details in attached form.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Your debit card blocked unless security check completed.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Confirm PIN to release held payment today.<br><b>Source:</b> Telegram · <b>Risk:</b> Critical.</li><li>Customer support asks password reset from this DM.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li><li>Bank transfer reversed only after OTP confirmation.<br><b>Source:</b> WhatsApp · <b>Risk:</b> Critical.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="money emotional">
+                <h2>Romance / Dating Scam</h2>
+                <p>Builds emotional dependency and then asks for emergency funds or travel support.</p>
+                <ul><li>Fast emotional intensity</li><li>Financial emergencies</li><li>Repeated promises to repay</li><li>Pressure to keep secret</li></ul>
+                <p class="guide-advice">Safety advice: Never send money to someone you have not verified offline.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="I booked flight to see you but card failed, can you send £280 urgently?">Try example in S.A.F.E Checker</button><a href="https://www.citizensadvice.org.uk/consumer/scams/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>I trust only you, please help with hospital bill tonight.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Send crypto so I can clear customs and visit.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li><li>I will repay when salary arrives, transfer now please.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li><li>Don’t tell friends, they ruin relationships like ours.<br><b>Source:</b> Other · <b>Risk:</b> Medium.</li><li>Pay visa fee and we can finally meet this week.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Need urgent cash after wallet theft overseas.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="money marketplace">
+                <h2>Rental Deposit / Accommodation Scam</h2>
+                <p>Scammers demand a deposit before viewing and disappear after payment.</p>
+                <ul><li>Deposit before viewing</li><li>“High demand” pressure</li><li>Bank transfer only</li><li>No verified address checks</li></ul>
+                <p class="guide-advice">Safety advice: Never pay deposit before viewing and verified contract checks.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Room is in high demand, send £300 deposit now before viewing to secure keys.">Try example in S.A.F.E Checker</button><a href="https://www.citizensadvice.org.uk/consumer/scams/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>Landlord abroad, transfer deposit and I courier keys.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Viewing possible only after refundable holding fee.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Pay first month to reserve this studio today.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li><li>Contract sent after payment receipt screenshot.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li><li>Student room deal expires in one hour, send now.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Agency asks transfer to personal account for speed.<br><b>Source:</b> Other · <b>Risk:</b> Critical.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="security money impersonation">
+                <h2>Subscription / Billing Scam</h2>
+                <p>Claims failed payment or expiring subscription and pushes fake update links.</p>
+                <ul><li>Unexpected billing failure</li><li>Urgent account suspension threat</li><li>Spoofed brand link</li><li>Credentials/payment ask</li></ul>
+                <p class="guide-advice">Safety advice: Manage subscriptions inside official app settings only.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Your subscription expires today. Update payment now to avoid account suspension.">Try example in S.A.F.E Checker</button><a href="https://www.ncsc.gov.uk/collection/phishing-scams" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>Payment failed, verify card details immediately.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Service locked until one-click billing confirmation.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Streaming account disabled unless you login here.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Unexpected annual renewal, cancel by entering bank PIN.<br><b>Source:</b> Other · <b>Risk:</b> Critical.</li><li>Subscription debt warning with legal follow-up language.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Discount renewal offer, pay security charge now.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="social security impersonation">
+                <h2>Social Media Account Recovery Scam</h2>
+                <p>Pretends to help recover account access while stealing codes and credentials.</p>
+                <ul><li>Fake support account</li><li>Requests login/OTP</li><li>Urgent “verify now” language</li><li>Untrusted links/forms</li></ul>
+                <p class="guide-advice">Safety advice: Use official in-app recovery only.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Your account will be permanently deleted unless you confirm your recovery code now.">Try example in S.A.F.E Checker</button><a href="https://www.ncsc.gov.uk/collection/phishing-scams" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>Support team here, send OTP to unlock profile.<br><b>Source:</b> Social Media DM · <b>Risk:</b> Critical.</li><li>Your account is flagged. Verify identity from this link.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Copyright warning: login immediately to avoid deletion.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Recovery manager requests backup codes privately.<br><b>Source:</b> WhatsApp · <b>Risk:</b> Critical.</li><li>Username suspended, enter password in attached form.<br><b>Source:</b> Telegram · <b>Risk:</b> Critical.</li><li>Appeal requires a £10 anti-bot verification payment.<br><b>Source:</b> Other · <b>Risk:</b> High.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="money">
+                <h2>Loan / Advance Fee Scam</h2>
+                <p>Promises quick loans but asks for upfront charges before funds are released.</p>
+                <ul><li>Guaranteed approval with no checks</li><li>Upfront insurance/admin fees</li><li>Pressure to pay quickly</li><li>No regulated lender details</li></ul>
+                <p class="guide-advice">Safety advice: Legitimate lenders do not ask advance payment before approval.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Loan approved instantly. Pay £65 release fee now and funds arrive in 10 minutes.">Try example in S.A.F.E Checker</button><a href="https://www.citizensadvice.org.uk/consumer/scams/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (5)</summary><ol class="guide-examples"><li>Bad credit accepted, transfer setup charge today.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li><li>Pre-approved loan waiting. Pay anti-fraud fee first.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>No documents needed, send deposit to secure payout.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Instant cash app asks transfer before verification call.<br><b>Source:</b> Telegram · <b>Risk:</b> High.</li><li>Late-night lender offer expires in 30 minutes.<br><b>Source:</b> Other · <b>Risk:</b> Medium.</li></ol></details>
+            </article>
+
+            <article class="guide-card" data-tags="marketplace money">
+                <h2>Marketplace / Online Shopping Scam</h2>
+                <p>Uses fake listings or payment links to steal money without delivering goods.</p>
+                <ul><li>Payment before viewing/collection</li><li>Off-platform payment request</li><li>Too-good-to-be-true pricing</li><li>Urgent reservation pressure</li></ul>
+                <p class="guide-advice">Safety advice: Use protected in-platform payment and verify item details.</p>
+                <div class="guide-actions"><button class="guide-copy" data-example="Item still available, reserve now with bank transfer before collection.">Try example in S.A.F.E Checker</button><a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">Learn more</a></div>
+                <details><summary>More examples (6)</summary><ol class="guide-examples"><li>Seller abroad, courier after full payment only.<br><b>Source:</b> Social Media DM · <b>Risk:</b> High.</li><li>Limited buyer queue, pay holding deposit now.<br><b>Source:</b> WhatsApp · <b>Risk:</b> High.</li><li>Marketplace support asks payment to release seller badge.<br><b>Source:</b> Telegram · <b>Risk:</b> Medium.</li><li>Invoice link from unknown domain to complete order.<br><b>Source:</b> Email · <b>Risk:</b> High.</li><li>Collector fee needed before meetup time confirmation.<br><b>Source:</b> Other · <b>Risk:</b> High.</li><li>Discount available only via direct transfer now.<br><b>Source:</b> SMS/Text Message · <b>Risk:</b> High.</li></ol></details>
+            </article>
+        </section>
+
+        <section class="guide-special">
+            <h2>Why scammers move conversations to private messaging apps</h2>
+            <p>Platforms such as WhatsApp, Telegram and social media DMs are not scams themselves, but scammers may misuse them because fake profiles, deleted messages, anonymous usernames and group pressure can make verification harder.</p>
+            <ul>
+                <li>Being moved quickly to Telegram, WhatsApp or another private messaging app</li>
+                <li>being added to investment or task groups</li>
+                <li>being asked for crypto, gift cards or bank transfers</li>
+                <li>Deleted messages, changing usernames or anonymous profiles</li>
+                <li>pressure not to speak to friends or family</li>
+            </ul>
+        </section>
+
+        <section class="guide-redflags">
+            <h2>Common red flags</h2>
+            <div class="guide-flag-grid">
+                <article><h3>Urgency</h3><p>Creates panic so you act before checking.</p></article>
+                <article><h3>Suspicious links</h3><p>Lookalike domains or shortened URLs hide fake pages.</p></article>
+                <article><h3>Money requests</h3><p>Unexpected payments, transfer fees, or release charges.</p></article>
+                <article><h3>OTP/password requests</h3><p>Legitimate services do not ask for OTPs, passwords or PINs through unsolicited messages.</p></article>
+                <article><h3>Impersonation</h3><p>Scammers pretend to be banks, delivery firms, or government.</p></article>
+                <article><h3>Unrealistic rewards</h3><p>“Guaranteed profit” or huge pay for minimal effort.</p></article>
+                <article><h3>Emotional pressure</h3><p>Uses fear, guilt, or family emergency stories.</p></article>
+                <article><h3>Requests to move platform</h3><p>Moves chats to private apps where verification is harder.</p></article>
+            </div>
+        </section>
+
+        <section class="guide-safe" data-tags="safe">
+            <h2>Safe message examples</h2>
+            <div class="guide-safe-grid">
+                <article><p><b>Message:</b> Meeting reminder for 3pm in Room B12.</p><p><b>Source:</b> Email · <b>Expected:</b> Low Risk · <b>Why:</b> Normal scheduling, no pressure or payment.</p></article>
+                <article><p><b>Message:</b> Your GP appointment is tomorrow at 09:40. Reply YES to confirm.</p><p><b>Source:</b> SMS/Text Message · <b>Expected:</b> Low Risk · <b>Why:</b> Standard reminder format.</p></article>
+                <article><p><b>Message:</b> I am leaving work now, see you in 20 minutes.</p><p><b>Source:</b> WhatsApp · <b>Expected:</b> Low Risk · <b>Why:</b> Normal personal update.</p></article>
+                <article><p><b>Message:</b> Delivery window is 2–4pm. Track from your existing app.</p><p><b>Source:</b> SMS/Text Message · <b>Expected:</b> Low Risk · <b>Why:</b> No suspicious link/payment demand.</p></article>
+                <article><p><b>Message:</b> University seminar moved to Friday 11:00 in Hall 3.</p><p><b>Source:</b> Email · <b>Expected:</b> Low Risk · <b>Why:</b> Routine academic communication.</p></article>
+                <article><p><b>Message:</b> Next week rota: Mon 9-5, Tue 10-6, Wed off.</p><p><b>Source:</b> Other · <b>Expected:</b> Low Risk · <b>Why:</b> Work scheduling only.</p></article>
+                <article><p><b>Message:</b> Your table for 2 is confirmed at 7:30pm tonight.</p><p><b>Source:</b> SMS/Text Message · <b>Expected:</b> Low Risk · <b>Why:</b> Booking confirmation without urgency.</p></article>
+                <article><p><b>Message:</b> Running late, traffic is heavy. I will be there by 6:15.</p><p><b>Source:</b> Social Media DM · <b>Expected:</b> Low Risk · <b>Why:</b> Informational message only.</p></article>
+                <article><p><b>Message:</b> Thank you for your help today, really appreciate it.</p><p><b>Source:</b> WhatsApp · <b>Expected:</b> Low Risk · <b>Why:</b> No requests, no links.</p></article>
+                <article><p><b>Message:</b> Support case #4821 updated. Please view status in your existing account portal.</p><p><b>Source:</b> Email · <b>Expected:</b> Low Risk · <b>Why:</b> No direct link/payment pressure.</p></article>
+            </div>
+        </section>
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script>
+(() => {
+    const search = document.getElementById("guide-search");
+    const chips = Array.from(document.querySelectorAll(".guide-chip"));
+    const cards = Array.from(document.querySelectorAll(".guide-card"));
+    const safeSection = document.querySelector(".guide-safe");
+    const safeItems = Array.from(document.querySelectorAll(".guide-safe-grid article"));
+    const redFlagsSection = document.querySelector(".guide-redflags");
+    const redFlagItems = Array.from(document.querySelectorAll(".guide-flag-grid article"));
+    const specialSection = document.querySelector(".guide-special");
+    const noResults = document.createElement("p");
+    noResults.className = "guide-no-results";
+    noResults.textContent = "No matches found. Try a broader keyword.";
+    noResults.style.display = "none";
+    noResults.style.margin = "0.9rem 0 0";
+    noResults.style.padding = "0.7rem 0.8rem";
+    noResults.style.border = "1px solid rgba(27, 37, 56, 0.35)";
+    noResults.style.borderRadius = "10px";
+    noResults.style.background = "#fbfaf7";
+    noResults.style.color = "#22304a";
+    search?.insertAdjacentElement("afterend", noResults);
+    let active = "all";
+
+    function normalize(text) {
+        return (text || "")
+            .toLowerCase()
+            .normalize("NFKD")
+            .replace(/[^\w\s]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function applyFilter() {
+        const q = normalize(search?.value || "");
+        let visibleCards = 0;
+        cards.forEach((card) => {
+            const text = normalize(card.textContent);
+            const tagHit = active === "all" || (card.dataset.tags || "").includes(active);
+            const searchHit = !q || text.includes(q);
+            const show = tagHit && searchHit;
+            card.style.display = show ? "" : "none";
+            if (show) {
+                visibleCards += 1;
+            }
+        });
+
+        let visibleSafe = 0;
+        safeItems.forEach((item) => {
+            const text = normalize(item.textContent);
+            const tagHit = active === "all" || active === "safe";
+            const searchHit = !q || text.includes(q);
+            const show = tagHit && searchHit;
+            item.style.display = show ? "" : "none";
+            if (show) {
+                visibleSafe += 1;
+            }
+        });
+        if (safeSection) {
+            safeSection.style.display = visibleSafe > 0 ? "" : "none";
+        }
+
+        let visibleFlags = 0;
+        redFlagItems.forEach((item) => {
+            const text = normalize(item.textContent);
+            const searchHit = !q || text.includes(q);
+            item.style.display = searchHit ? "" : "none";
+            if (searchHit) {
+                visibleFlags += 1;
+            }
+        });
+        if (redFlagsSection) {
+            redFlagsSection.style.display = visibleFlags > 0 ? "" : "none";
+        }
+
+        if (specialSection) {
+            const specialHit = !q || normalize(specialSection.textContent).includes(q);
+            specialSection.style.display = specialHit ? "" : "none";
+        }
+
+        const anyVisible =
+            visibleCards > 0 ||
+            visibleSafe > 0 ||
+            visibleFlags > 0 ||
+            (specialSection ? specialSection.style.display !== "none" : false);
+        if (noResults) {
+            noResults.style.display = anyVisible ? "none" : "";
+        }
+    }
+
+    chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+            chips.forEach((c) => c.classList.remove("guide-chip--active"));
+            chip.classList.add("guide-chip--active");
+            active = chip.dataset.filter || "all";
+            applyFilter();
+        });
+    });
+    search?.addEventListener("input", applyFilter);
+
+    document.querySelectorAll(".guide-copy").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+            const text = btn.getAttribute("data-example") || "";
+            try {
+                await navigator.clipboard.writeText(text);
+                const note = document.createElement("small");
+                note.className = "guide-copy-note";
+                note.textContent = "Example copied. Paste it into the S.A.F.E Checker.";
+                btn.insertAdjacentElement("afterend", note);
+                setTimeout(() => note.remove(), 2200);
+            } catch (_) {}
+        });
+    });
+    applyFilter();
+})();
+</script>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

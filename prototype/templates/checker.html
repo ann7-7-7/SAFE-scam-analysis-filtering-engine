@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>S.A.F.E Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body class="checker-page">
+{% set score = (risk_score | default(0)) | int %}
+{% set band = risk_band | default('Low') %}
+{% set band_lc = band | lower | replace(' ', '-') %}
+{% set category = scam_category | default('Likely Safe', true) %}
+{% set msg = (original_message | default('', true)) or (message | default('', true)) %}
+{% set ws = warning_signs | default([]) %}
+{% set indicators = matched_indicators | default([]) %}
+{% set hl = highlighted_message | default('', true) %}
+{% set has_result = has_result | default(false) %}
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--checker">
+    {% set active_page = 'checker' %}
+    {% set check_href = '#checker-tool' %}
+    {% include "partials/site_header.html" %}
+    <main class="content checker-content" id="main-content">
+        <div class="header__titles checker-intro">
+            <h1>S.A.F.E Checker</h1>
+            <p class="tagline">Paste a suspicious message and receive an explainable scam risk assessment.</p>
+            <p class="tagline checker-note">Designed to help users pause, check and understand warning signs before clicking, replying or sending money.</p>
+        </div>
+
+        <section class="checker-shell card" id="checker-tool" aria-labelledby="checker-form-title">
+            <div class="checker-tabs" role="tablist" aria-label="Checker input type">
+                <button class="checker-tab checker-tab--active" type="button" role="tab" aria-selected="true" aria-label="Message">
+                    <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H8l-4 4V5zm2 2v7.17L7.17 13H18V7H6z"/></svg>
+                    <span class="checker-tab__label">Message</span>
+                </button>
+                <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Website (Future feature)">
+                    <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.92 9h-3.1a15.7 15.7 0 00-1.43-5.02A8.03 8.03 0 0118.92 11zM12 4c.9 1.1 1.9 3.25 2.3 7H9.7c.4-3.75 1.4-5.9 2.3-7zM4.08 13h3.1c.2 1.77.71 3.53 1.43 5.02A8.03 8.03 0 014.08 13zm3.1-2h-3.1a8.03 8.03 0 014.53-5.02A15.7 15.7 0 007.18 11zm4.82 9c-.9-1.1-1.9-3.25-2.3-7h4.6c-.4 3.75-1.4 5.9-2.3 7zm2.39-1.98A15.7 15.7 0 0015.82 13h3.1a8.03 8.03 0 01-4.53 5.02z"/></svg>
+                    <span class="checker-tab__label">Website</span>
+                </button>
+                <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Phone (Future feature)">
+                    <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 3v14h10V5H7zm4 12h2v1h-2v-1z"/></svg>
+                    <span class="checker-tab__label">Phone</span>
+                </button>
+                <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Image (Future feature)">
+                    <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2zm0 2v10h16V7H4zm3 8l2.5-3 2 2L14.5 10 19 15H7zm1-6.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
+                    <span class="checker-tab__label">Image</span>
+                </button>
+            </div>
+
+            <div class="checker-body">
+                <h2 id="checker-form-title" class="visually-hidden">Text message checker</h2>
+                <form action="{{ url_for('analyse') }}" method="post" class="analyse-form">
+                    <p class="checker-input-tip">Paste the full message exactly as received, including links and unusual wording.</p>
+                    <label for="message" class="field-label">Suspicious message text</label>
+                    <textarea id="message" name="message" rows="11" required placeholder="Paste the full suspicious message here...">{{ message | default('', true) }}</textarea>
+
+                    <fieldset class="field-group">
+                        <legend>Where did you receive this message?</legend>
+                        <div class="channel-grid">
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="sms" {% if selected_channel == "sms" %}checked{% endif %}>
+                                <span>SMS/Text Message</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="whatsapp" {% if selected_channel == "whatsapp" %}checked{% endif %}>
+                                <span>WhatsApp</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="telegram" {% if selected_channel == "telegram" %}checked{% endif %}>
+                                <span>Telegram</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="email" {% if selected_channel == "email" %}checked{% endif %}>
+                                <span>Email</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="social_media_dm" {% if selected_channel in ["social_media_dm", "social"] %}checked{% endif %}>
+                                <span>Social Media DM</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="other" {% if selected_channel == "other" %}checked{% endif %}>
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="button-primary button-primary--large">Check message</button>
+                    <p class="privacy-note checker-privacy">Messages are analysed temporarily and are not stored.</p>
+                </form>
+            </div>
+        </section>
+
+        {% if has_result %}
+        <section class="checker-result card" aria-labelledby="result-title">
+            <h2 id="result-title">Result</h2>
+            <p class="result-riskline result-riskline--{{ band_lc }}">{{ band }} Risk: This message shows {{ "minimal" if band == "Low" else "strong" if band in ("High", "Critical") else "some" }} scam indicators</p>
+
+            <div class="result-meta">
+                <div><span>Scam risk score</span><strong>{{ score }} / 100</strong></div>
+                <div><span>Detected scam category</span><strong>{{ category }}</strong></div>
+            </div>
+
+            <h3>Warning signs</h3>
+            {% if ws and ws | length > 0 %}
+            <ul class="check-list">
+                {% for sign in ws %}
+                <li>{{ sign }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="muted">No strong warning signs detected.</p>
+            {% endif %}
+
+            <h3>Highlighted risky phrases</h3>
+            <div class="message-box checker-message">{{ hl | safe if hl else msg }}</div>
+
+            <h3>Why S.A.F.E flagged this</h3>
+            <div class="explain-grid">
+                {% if "device compromise claim detected" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Device compromise claim detected</h4></article>
+                {% endif %}
+                {% if "money demand detected" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Money demand detected</h4></article>
+                {% endif %}
+                {% if "download instruction detected" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Download instruction detected</h4></article>
+                {% endif %}
+                {% if "fear pressure detected" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Fear pressure detected</h4></article>
+                {% endif %}
+                {% if "urgency" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Urgency pressure detected</h4></article>
+                {% endif %}
+                {% if "link" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Suspicious link detected</h4></article>
+                {% endif %}
+                {% if "impersonation" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Impersonation pattern detected</h4></article>
+                {% endif %}
+                {% if "otp" in (ws | join(' ') | lower) or "password" in (ws | join(' ') | lower) or "money" in (ws | join(' ') | lower) %}
+                <article class="explain-card"><h4>Money or credential request detected</h4></article>
+                {% endif %}
+                {% if not ws or ws | length == 0 %}
+                <article class="explain-card"><h4>Low-risk pattern profile</h4></article>
+                {% endif %}
+            </div>
+
+            <h3>What should I do now?</h3>
+            <div class="action-cards">
+                <article class="action-card"><h4>Do not click suspicious links</h4><p>Open trusted websites and apps directly instead of using links from unexpected messages.</p></article>
+                <article class="action-card"><h4>Do not share OTPs, passwords or bank details</h4><p>Legitimate providers will not request sensitive credentials through unsolicited messages.</p></article>
+                <article class="action-card"><h4>Verify through the official website or app</h4><p>Use official contact channels to confirm any urgent request before taking action.</p></article>
+                <article class="action-card"><h4>Report and block the sender if needed</h4><p>Report suspicious messages to your platform or relevant authority and block repeat senders.</p></article>
+            </div>
+            <p class="checker-result-action">
+                <a class="safe-home__btn safe-home__btn--primary" href="{{ url_for('checker') }}#checker-tool">Check another message</a>
+            </p>
+        </section>
+        {% endif %}
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

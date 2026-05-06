@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About S.A.F.E</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body class="checker-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--checker page--about-safe">
+    {% set active_page = 'about' %}
+    {% set check_href = url_for('checker') ~ '#checker-tool' %}
+    {% include "partials/site_header.html" %}
+    <div class="header__titles">
+        <h1>About S.A.F.E</h1>
+        <p class="tagline">S.A.F.E is an explainable scam awareness and message-checking tool designed to help users recognise suspicious messages before they click, reply or send money.</p>
+    </div>
+
+    <main class="about-safe__main" id="main-content">
+        <section class="about-safe__card">
+            <h2>What is S.A.F.E?</h2>
+            <p>S.A.F.E stands for Scam Analysis &amp; Filtering Engine. It is a final year cybersecurity project focused on helping users analyse suspicious messages from SMS/Text Message, WhatsApp, Telegram, Email and Social Media DMs. The system provides a scam risk score, detected scam category, warning signs, highlighted red flags and practical safety advice.</p>
+        </section>
+
+        <section class="about-safe__card">
+            <h2>Why was S.A.F.E created?</h2>
+            <p>Scam messages are becoming more common and often use urgency, fear, fake links, impersonation and emotional pressure. Many users are unsure whether a message is genuine. S.A.F.E was created to support safer decision-making by helping users pause, check and understand the warning signs.</p>
+        </section>
+
+        <section class="about-safe__card">
+            <h2>How does S.A.F.E work?</h2>
+            <div class="about-safe__steps">
+                <article><h3>Paste the message</h3><p>The user pastes the suspicious message exactly as received.</p></article>
+                <article><h3>Detect warning signs</h3><p>S.A.F.E checks for scam indicators such as urgency, suspicious links, money requests, impersonation, OTP/password requests and unsafe download instructions.</p></article>
+                <article><h3>Calculate risk</h3><p>The system assigns a scam risk score and risk level based on matched indicators.</p></article>
+                <article><h3>Explain and advise</h3><p>The result explains why the message may be suspicious and provides safety guidance.</p></article>
+            </div>
+        </section>
+
+        <section class="about-safe__card">
+            <h2>Current implementation</h2>
+            <p>The current artefact is implemented as an explainable rule-based baseline version of the planned AI-powered scam detection system. It uses predefined scam indicators to demonstrate the complete workflow: message input, scam indicator detection, risk scoring, category identification, explanation and safety advice.</p>
+        </section>
+
+        <section class="about-safe__card about-safe__difference">
+            <h2>What makes S.A.F.E different?</h2>
+            <p>S.A.F.E focuses on explainability and user education. Instead of only giving a simple safe or unsafe result, it shows a risk score, scam category, matched warning signs, highlighted red flags and practical safety advice.</p>
+        </section>
+
+        <section class="about-safe__card">
+            <h2>Future improvements</h2>
+            <div class="about-safe__future">
+                <article>
+                    <h3>Supervised NLP model</h3>
+                    <p>Train a supervised model such as Logistic Regression or DistilBERT using a larger labelled dataset.</p>
+                </article>
+                <article>
+                    <h3>URL checking</h3>
+                    <p>Add website link analysis to help identify suspicious or impersonation-style URLs.</p>
+                </article>
+                <article>
+                    <h3>Phone number reputation</h3>
+                    <p>Explore phone number checking to support scam detection across SMS and messaging platforms.</p>
+                </article>
+                <article>
+                    <h3>Image and screenshot analysis</h3>
+                    <p>Add support for analysing scam screenshots, fake adverts and image-based messages.</p>
+                </article>
+                <article>
+                    <h3>Larger evaluation dataset</h3>
+                    <p>Improve testing using more scam and safe examples across different scam categories.</p>
+                </article>
+                <article>
+                    <h3>Public deployment after security review</h3>
+                    <p>Explore public deployment only after additional security, privacy and reliability testing.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-safe__card">
+            <h2>Privacy and ethical approach</h2>
+            <p>S.A.F.E is designed with privacy and user safety in mind. Messages are analysed temporarily and are not stored by default. The system provides risk guidance only and does not guarantee accuracy. Users should always verify suspicious messages through official channels.</p>
+        </section>
+
+        <section class="about-safe__identity">
+            <h3>Final year cybersecurity project</h3>
+            <p>This website was developed as part of an undergraduate Final Year Project in Cyber Security. The project focuses on phishing, social engineering, scam awareness, explainability, privacy and user-centred security.</p>
+        </section>
+
+        <section class="about-safe__cta">
+            <h2>Ready to check a suspicious message?</h2>
+            <p>Use the S.A.F.E Checker to analyse a message and understand the warning signs before taking action.</p>
+            <a class="safe-home__btn safe-home__btn--primary" href="{{ url_for('checker') }}#checker-tool">Check a message</a>
+        </section>
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

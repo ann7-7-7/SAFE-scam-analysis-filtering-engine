@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>S.A.F.E. – Scam Analysis &amp; Filtering Engine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--home">
+    {% set active_page = 'home' %}
+    {% set checker_nav_href = '#checker' %}
+    {% set check_href = '#checker' %}
+    {% include "partials/site_header.html" %}
+
+    <main class="safe-home__main" id="main-content">
+        <section class="safe-home__hero safe-home__hero--product" aria-labelledby="hero-title">
+            <div class="safe-home__hero-grid">
+                <div class="safe-home__hero-copy">
+                    <p class="safe-home__eyebrow">EVERYONE DESERVES TO FEEL S.A.F.E ONLINE</p>
+                    <h1 id="hero-title" class="safe-home__headline">Scams often start with a message. Check before you trust it.</h1>
+                    <p class="safe-home__subhead">S.A.F.E helps users analyse suspicious SMS, WhatsApp, email and social media messages. It gives a scam risk score, highlights red flags and explains what to do next in plain language.</p>
+                    <div class="safe-home__hero-actions">
+                        <a class="safe-home__btn safe-home__btn--primary" href="#checker">Check a message</a>
+                        <a class="safe-home__btn safe-home__btn--secondary" href="{{ url_for('dataset') }}">Explore scam types</a>
+                    </div>
+                    <p class="safe-home__privacy safe-home__privacy--trust">Messages are analysed temporarily and are not stored.</p>
+                </div>
+
+                <div class="safe-home__hero-visual" aria-label="Example chat and result mockup">
+                    <div class="safe-home__phone" role="img" aria-label="3D phone mockup showing a suspicious message and SAFE result">
+                        <div class="safe-home__phone-top">
+                            <div class="safe-home__phone-speaker" aria-hidden="true"></div>
+                            <div class="safe-home__phone-dot" aria-hidden="true"></div>
+                        </div>
+                        <div class="safe-home__chat">
+                            <p class="safe-home__chat-label">Message</p>
+                            <div class="safe-home__bubble safe-home__bubble--scam">
+                                <p class="safe-home__bubble-text">Urgent! Your bank account will be locked. Verify now: <span class="safe-home__linkish">secure-alert.example</span></p>
+                            </div>
+                            <div class="safe-home__result-card" aria-label="SAFE result card">
+                                <p class="safe-home__result-title">S.A.F.E result</p>
+                                <p class="safe-home__result-big safe-home__result-big--warn">High Risk</p>
+                                <p class="safe-home__result-sub"><span class="safe-home__result-key">Warning signs:</span> urgency, suspicious link, impersonation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="safe-home__illus" aria-hidden="true">
+                        <div class="safe-home__illus-card">
+                            <div class="safe-home__illus-mark safe-home__illus-mark--warn"></div>
+                            <div class="safe-home__illus-lines"></div>
+                        </div>
+                        <div class="safe-home__illus-card safe-home__illus-card--offset">
+                            <div class="safe-home__illus-mark safe-home__illus-mark--trust"></div>
+                            <div class="safe-home__illus-lines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="safe-home__section" aria-labelledby="need-heading">
+            <div class="safe-home__section-head">
+                <h2 id="need-heading" class="safe-home__section-title">Everyone deserves to feel S.A.F.E online.</h2>
+                <p class="safe-home__section-lead">Scammers use urgency, fake links and impersonation to pressure people into quick decisions. S.A.F.E helps users pause, check and understand the warning signs before they respond.</p>
+            </div>
+            <div class="safe-home__cards3" role="list">
+                <article class="safe-home__card" role="listitem">
+                    <img class="safe-home__card-img" src="{{ url_for('static', filename='img/early-check.svg') }}" alt="Illustration: a shield and a message bubble">
+                    <h3 class="safe-home__card-title">Pause before you act</h3>
+                    <p class="safe-home__card-text">Scams often create urgency. S.A.F.E helps slow the decision down.</p>
+                </article>
+                <article class="safe-home__card" role="listitem">
+                    <img class="safe-home__card-img" src="{{ url_for('static', filename='img/red-flags.svg') }}" alt="Illustration: magnifier over warning marks">
+                    <h3 class="safe-home__card-title">Spot the red flags</h3>
+                    <p class="safe-home__card-text">The checker highlights suspicious links, requests and phrases.</p>
+                </article>
+                <article class="safe-home__card" role="listitem">
+                    <img class="safe-home__card-img" src="{{ url_for('static', filename='img/privacy.svg') }}" alt="Illustration: lock and eye with privacy focus">
+                    <h3 class="safe-home__card-title">Know what to do next</h3>
+                    <p class="safe-home__card-text">Users receive simple safety steps, not just a risk label.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="safe-home__section" aria-labelledby="already-heading">
+            <div class="safe-home__split">
+                <div class="safe-home__split-copy">
+                    <h2 id="already-heading" class="safe-home__section-title">People are already asking about scams.</h2>
+                    <p class="safe-home__section-lead">
+                        They want guidance on suspicious texts, unusual payment requests, and unfamiliar websites. S.A.F.E gives a clear, explainable
+                        response: what looks risky, why it matters, and what safer next steps are.
+                    </p>
+                    <div class="safe-home__split-actions">
+                        <a class="safe-home__btn safe-home__btn--secondary" href="{{ url_for('contact') }}">Get in touch</a>
+                        <a class="safe-home__btn safe-home__btn--primary" href="#checker">Try it yourself</a>
+                    </div>
+                </div>
+                <div class="safe-home__split-visual" aria-hidden="true">
+                    <div class="safe-home__poster">
+                        <div class="safe-home__poster-top">
+                            <span class="safe-home__poster-dot"></span><span class="safe-home__poster-dot"></span><span class="safe-home__poster-dot"></span>
+                        </div>
+                        <div class="safe-home__poster-body">
+                            <div class="safe-home__poster-path"></div>
+                            <div class="safe-home__poster-mark"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="safe-home__section" aria-labelledby="why-heading">
+            <div class="safe-home__section-head">
+                <h2 id="why-heading" class="safe-home__section-title">Why S.A.F.E?</h2>
+            </div>
+            <div class="safe-home__cards4" role="list">
+                <article class="safe-home__card" role="listitem">
+                    <h3 class="safe-home__card-title">Clear risk score</h3>
+                    <p class="safe-home__card-text">A simple score helps users understand the level of risk in a suspicious message.</p>
+                </article>
+                <article class="safe-home__card" role="listitem">
+                    <h3 class="safe-home__card-title">Plain-English explanation</h3>
+                    <p class="safe-home__card-text">S.A.F.E explains warning signs in clear language for non-technical users.</p>
+                </article>
+                <article class="safe-home__card" role="listitem">
+                    <h3 class="safe-home__card-title">Privacy-first checking</h3>
+                    <p class="safe-home__card-text">Messages are analysed temporarily and are not stored by default.</p>
+                </article>
+                <article class="safe-home__card" role="listitem">
+                    <h3 class="safe-home__card-title">Covers modern scam types</h3>
+                    <p class="safe-home__card-text">Designed around scams such as fake jobs, crypto scams, HMRC scams, parcel scams, OTP scams and impersonation.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="safe-home__try" aria-labelledby="try-heading">
+            <div class="safe-home__try-inner">
+                <h2 id="try-heading" class="safe-home__try-title">Not sure if a message is real?</h2>
+                <p class="safe-home__try-text">Paste it into S.A.F.E and check the risk before clicking, replying or sending money.</p>
+                <a class="safe-home__btn safe-home__btn--primary" href="#checker">Check a message</a>
+            </div>
+        </section>
+
+        <section class="safe-home__section" id="checker" aria-labelledby="checker-heading">
+            <div class="safe-home__checker-head">
+                <h2 id="checker-heading" class="safe-home__section-title">S.A.F.E Checker</h2>
+                <p class="safe-home__section-lead">Paste the message you received. You’ll get a risk score, warning signs, highlights, and safety advice.</p>
+            </div>
+
+            {# Keep existing form action/fields so the scam checker works exactly as before. #}
+            <section class="safe-home__checker-card" aria-label="Scam checker form">
+                <form action="{{ url_for('analyse') }}" method="post" class="analyse-form">
+                    <div class="checker-tabs" role="tablist" aria-label="Checker input type">
+                        <button class="checker-tab checker-tab--active" type="button" role="tab" aria-selected="true" aria-label="Message">
+                            <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H8l-4 4V5zm2 2v7.17L7.17 13H18V7H6z"/></svg>
+                            <span class="checker-tab__label">Message</span>
+                        </button>
+                        <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Website (Future feature)">
+                            <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.92 9h-3.1a15.7 15.7 0 00-1.43-5.02A8.03 8.03 0 0118.92 11zM12 4c.9 1.1 1.9 3.25 2.3 7H9.7c.4-3.75 1.4-5.9 2.3-7zM4.08 13h3.1c.2 1.77.71 3.53 1.43 5.02A8.03 8.03 0 014.08 13zm3.1-2h-3.1a8.03 8.03 0 014.53-5.02A15.7 15.7 0 007.18 11zm4.82 9c-.9-1.1-1.9-3.25-2.3-7h4.6c-.4 3.75-1.4 5.9-2.3 7zm2.39-1.98A15.7 15.7 0 0015.82 13h3.1a8.03 8.03 0 01-4.53 5.02z"/></svg>
+                            <span class="checker-tab__label">Website</span>
+                        </button>
+                        <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Phone (Future feature)">
+                            <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 3v14h10V5H7zm4 12h2v1h-2v-1z"/></svg>
+                            <span class="checker-tab__label">Phone</span>
+                        </button>
+                        <button class="checker-tab" type="button" role="tab" aria-selected="false" disabled title="Future feature" aria-label="Image (Future feature)">
+                            <svg class="checker-tab__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2zm0 2v10h16V7H4zm3 8l2.5-3 2 2L14.5 10 19 15H7zm1-6.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
+                            <span class="checker-tab__label">Image</span>
+                        </button>
+                    </div>
+
+                    <label for="message" class="field-label">Your message</label>
+                    <textarea id="message" name="message" rows="12" required
+                        placeholder="Paste the full text of the message you are unsure about…"
+                        aria-describedby="privacy-home"></textarea>
+
+                    <fieldset class="field-group">
+                        <legend>Where did you receive this message?</legend>
+                        <div class="channel-grid">
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="sms" checked>
+                                <span>SMS/Text Message</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="whatsapp">
+                                <span>WhatsApp</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="telegram">
+                                <span>Telegram</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="email">
+                                <span>Email</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="social_media_dm">
+                                <span>Social Media DM</span>
+                            </label>
+                            <label class="channel-option">
+                                <input type="radio" name="channel" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="safe-home__btn safe-home__btn--primary safe-home__btn--submit">Analyse Message</button>
+                </form>
+
+                <p class="safe-home__privacy safe-home__privacy--trust" id="privacy-home">Messages are analysed temporarily and are not stored.</p>
+            </section>
+        </section>
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

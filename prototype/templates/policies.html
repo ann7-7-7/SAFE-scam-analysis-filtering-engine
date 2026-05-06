@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Policies – S.A.F.E</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='headerfix-20260505') }}">
+</head>
+<body class="checker-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--checker page--policies">
+    {% set active_page = '' %}
+    {% set check_href = url_for('checker') ~ '#checker-tool' %}
+    {% include "partials/site_header.html" %}
+
+    <main class="policies__main" id="main-content">
+        <div class="header__titles policies__intro">
+            <h1>Policies</h1>
+            <p class="tagline">Privacy, responsible use, AI transparency and disclaimer information for S.A.F.E.</p>
+        </div>
+
+        <section class="policies__card" id="privacy">
+            <h2>Privacy Notice</h2>
+            <p>S.A.F.E is designed with privacy and data minimisation in mind. User-submitted messages are analysed temporarily to generate a risk score and explanation. Messages are not stored by default. Users should avoid submitting passwords, OTPs, bank details, private documents or sensitive personal information.</p>
+        </section>
+
+        <section class="policies__card" id="terms">
+            <h2>Terms of Use</h2>
+            <p>S.A.F.E is an academic safety and awareness tool. It is intended to help users identify possible scam indicators and make safer decisions. Users remain responsible for verifying suspicious messages through official websites, apps or trusted contact channels.</p>
+        </section>
+
+        <section class="policies__card" id="cookies">
+            <h2>Cookie Policy</h2>
+            <p>The current S.A.F.E prototype does not use tracking cookies or advertising cookies. If cookies or analytics are added in a future public version, this notice should be updated to explain what data is collected and why.</p>
+        </section>
+
+        <section class="policies__card" id="ai">
+            <h2>AI Statement</h2>
+            <p>The current implementation is an explainable rule-based baseline version of the planned AI-powered scam detection system. It checks for predefined scam indicators such as urgency, suspicious links, payment requests, impersonation and credential requests. Future development may include supervised NLP models such as Logistic Regression or DistilBERT using a larger labelled dataset.</p>
+        </section>
+
+        <section class="policies__card policies__card--warn" id="disclaimer">
+            <h2>Disclaimer</h2>
+            <p>S.A.F.E provides risk guidance only and does not guarantee accuracy. Scam messages can change over time, and the tool may produce false positives or false negatives. Always verify suspicious messages through official channels before clicking links, sharing codes, downloading files or sending money.</p>
+        </section>
+    </main>
+
+    {% include "partials/site_footer.html" %}
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

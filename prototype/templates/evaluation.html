@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Engine Evaluation - S.A.F.E.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page page--inner">
+    <header class="header header--with-nav">
+        {% include 'partials/nav.html' %}
+        <div class="header__titles">
+            <h1>S.A.F.E. Engine Evaluation</h1>
+            <p class="tagline">Measured performance on built-in benchmark examples.</p>
+        </div>
+    </header>
+
+    <main class="content content--inner content--wide" id="main-content">
+        {% set report = eval_report %}
+        <section class="card card--summary">
+            <h2 class="card__title card__title--plain">Accuracy snapshot</h2>
+            <div class="eval-metrics">
+                <article class="eval-metric">
+                    <p class="eval-metric__label">Strict accuracy</p>
+                    <p class="eval-metric__value">{{ report.strict_accuracy }}%</p>
+                    <p class="eval-metric__hint">Band + category both correct</p>
+                </article>
+                <article class="eval-metric">
+                    <p class="eval-metric__label">Band accuracy</p>
+                    <p class="eval-metric__value">{{ report.band_accuracy }}%</p>
+                    <p class="eval-metric__hint">Risk level only</p>
+                </article>
+                <article class="eval-metric">
+                    <p class="eval-metric__label">Category accuracy</p>
+                    <p class="eval-metric__value">{{ report.category_accuracy }}%</p>
+                    <p class="eval-metric__hint">Scam type only</p>
+                </article>
+            </div>
+            <p class="muted">Cases tested: {{ report.total }}. Add more examples in <code>app.py</code> under <code>EVAL_CASES</code>.</p>
+        </section>
+
+        <section class="card">
+            <h2 class="card__title card__title--plain">Case-by-case results</h2>
+            <div class="eval-table-wrap">
+                <table class="eval-table">
+                    <thead>
+                        <tr>
+                            <th>Case</th>
+                            <th>Expected Band</th>
+                            <th>Actual Band</th>
+                            <th>Expected Category</th>
+                            <th>Actual Category</th>
+                            <th>Score</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in report.rows %}
+                        <tr>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.expected_band }}</td>
+                            <td>{{ row.actual_band }}</td>
+                            <td>{{ row.expected_category }}</td>
+                            <td>{{ row.actual_category }}</td>
+                            <td>{{ row.score }}</td>
+                            <td>
+                                {% if row.pass %}
+                                <span class="eval-status eval-status--pass">PASS</span>
+                                {% else %}
+                                <span class="eval-status eval-status--fail">FAIL</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <small>Prototype benchmark only - not a production certification.</small>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

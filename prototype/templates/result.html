@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analysis result – S.A.F.E.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{# Safe defaults so missing variables never break the page (viva / robustness). #}
+{% set score = (risk_score | default(0)) | int %}
+{% set band = risk_band | default('Low') %}
+{% set band_lc = band | lower | replace(' ', '-') %}
+{% set category = scam_category | default('', true) %}
+{% set ws = warning_signs | default(reasons | default([])) %}
+{% set advice = safety_advice | default('Stay cautious with unexpected messages.', true) %}
+{% set hl = highlighted_message | default('', true) %}
+{% set ind = matched_indicators | default([]) %}
+{% set msg = (original_message | default('', true)) or (message | default('', true)) %}
+{% set tips = guidance | default([]) %}
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page">
+    <header class="header header--with-nav">
+        {% include 'partials/nav.html' %}
+        <div class="header__titles header__titles--result">
+            <p class="header__crumb">S.A.F.E. · Analysis result</p>
+            <h1>Your analysis result</h1>
+            <p class="tagline">Rule-based scan — use official channels to verify anything important.</p>
+        </div>
+    </header>
+
+    <main class="content content--result" id="main-content">
+
+        {# —— Dashboard summary: score, badge, bar —— #}
+        <section class="card card--summary card--dashboard" aria-labelledby="summary-heading">
+            <div class="dashboard__accent" aria-hidden="true"></div>
+            <h2 id="summary-heading" class="visually-hidden">Risk summary</h2>
+            <div class="summary-grid summary-grid--dashboard">
+                <div class="summary-stat summary-stat--hero">
+                    <span class="summary-stat__label">Scam probability (rule-based score)</span>
+                    <div class="summary-stat__value-wrap">
+                        <span class="summary-stat__value summary-stat__value--xl">{{ score }}<span class="summary-stat__pct">%</span></span>
+                    </div>
+                    <span class="summary-stat__hint">Higher means more warning signs matched (maximum 100).</span>
+                </div>
+                <div class="summary-badge-wrap summary-badge-wrap--dashboard">
+                    <span class="summary-stat__label">Risk level</span>
+                    <span class="risk-badge risk-badge--xl risk-badge--{{ band_lc }}">{{ band }} risk</span>
+                </div>
+            </div>
+            <p class="category-line category-line--dashboard"><span class="category-line__label">Detected scam category</span> <strong class="category-line__value">{{ category if category else '—' }}</strong></p>
+
+            <div class="risk-bar risk-bar--polished" role="img" aria-label="Risk score {{ score }} out of 100">
+                <div class="risk-bar__track risk-bar__track--polished">
+                    <div class="risk-bar__fill risk-bar__fill--{{ band_lc }} risk-bar__fill--glow" style="width: {{ score if score <= 100 else 100 }}%;"></div>
+                </div>
+                <div class="risk-bar__labels"><span>0</span><span>100</span></div>
+            </div>
+        </section>
+
+        {# —— Message with highlights (escaped server-side; only highlight spans are HTML) —— #}
+        <section class="card card--message-panel" aria-labelledby="msg-heading">
+            <div class="card__head card__head--tight">
+                <p class="card__eyebrow">Original text</p>
+                <h2 id="msg-heading" class="card__title card__title--plain">Message you pasted</h2>
+            </div>
+            {% if msg %}
+            <p class="message-note">Suspicious words and links are highlighted in yellow.</p>
+            <div class="message-box message-box--result">{{ hl | safe }}</div>
+            {% else %}
+            <p class="message-note message-note--warn">No message was provided.</p>
+            {% endif %}
+        </section>
+
+        {# —— What should I do now? —— #}
+        <section class="card card--actions card--actions-pro" aria-labelledby="actions-heading">
+            <h2 id="actions-heading" class="card__title card__title--plain">What should I do now?</h2>
+            <p class="section-lead">Follow these steps in order. They are safe for any type of scam message.</p>
+            <div class="action-cards action-cards--pro">
+                <div class="action-card action-card--pro">
+                    <span class="action-card__glyph" aria-hidden="true">①</span>
+                    <div>
+                        <h3 class="action-card__title">Do not click links</h3>
+                        <p class="action-card__text">Links can go to fake sites. If you need the service, open the official app or type the website yourself.</p>
+                    </div>
+                </div>
+                <div class="action-card action-card--pro">
+                    <span class="action-card__glyph" aria-hidden="true">②</span>
+                    <div>
+                        <h3 class="action-card__title">Do not send money</h3>
+                        <p class="action-card__text">Scammers rush you to pay by transfer, gift cards, or crypto. Stop and check with someone you trust.</p>
+                    </div>
+                </div>
+                <div class="action-card action-card--pro">
+                    <span class="action-card__glyph" aria-hidden="true">③</span>
+                    <div>
+                        <h3 class="action-card__title">Do not share OTPs or passwords</h3>
+                        <p class="action-card__text">Banks and real services never ask for your full password or codes by message.</p>
+                    </div>
+                </div>
+                <div class="action-card action-card--pro">
+                    <span class="action-card__glyph" aria-hidden="true">④</span>
+                    <div>
+                        <h3 class="action-card__title">Verify using an official source</h3>
+                        <p class="action-card__text">Find the phone number or website on your bank card, bill, or search for the company’s official site—not from this message.</p>
+                    </div>
+                </div>
+                <div class="action-card action-card--pro">
+                    <span class="action-card__glyph" aria-hidden="true">⑤</span>
+                    <div>
+                        <h3 class="action-card__title">Block and report the sender</h3>
+                        <p class="action-card__text">Use “Report spam” or “Block” in your app, and tell Action Fraud (UK) or your platform’s help centre if you lost money or data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# —— Why is this a scam? —— #}
+        <section class="card card--why" aria-labelledby="why-heading">
+            <h2 id="why-heading" class="card__title card__title--plain">Why is this a scam?</h2>
+            {% if ws and ws | length > 0 %}
+            <p class="section-lead">The tool noticed the following warning signs. They are common in scam messages:</p>
+            <ul class="check-list">
+                {% for line in ws %}
+                <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="why-fallback">No major scam indicators were detected, but you should still be careful with unknown senders.</p>
+            {% endif %}
+        </section>
+
+        {# —— Simple mode —— #}
+        <section class="card card--mode card--mode-simple card--mode-simple-panel" aria-labelledby="simple-heading">
+            <div class="mode-header mode-header--simple">
+                <h2 id="simple-heading">Simple mode</h2>
+                <span class="mode-pill mode-pill--simple">Easy read</span>
+            </div>
+            <p class="simple-lead">This message looks <strong class="simple-risk simple-risk--{{ band_lc }}">{{ band }} risk</strong>.</p>
+            <p class="simple-advice">{{ advice }}</p>
+            <h3 class="simple-actions-title">Remember</h3>
+            <ul class="simple-actions">
+                <li>Do not click suspicious links.</li>
+                <li>Do not send money.</li>
+                <li>Do not share OTPs, passwords, or banking details.</li>
+                <li>Contact the organisation using the official website, app, or phone number you look up yourself.</li>
+                <li>Block and report the sender if you need to.</li>
+            </ul>
+        </section>
+
+        {# —— Advanced mode —— #}
+        <section class="card card--mode card--mode-advanced card--mode-advanced-panel" aria-labelledby="adv-heading">
+            <div class="mode-header mode-header--advanced">
+                <h2 id="adv-heading">Advanced mode</h2>
+                <span class="mode-pill mode-pill--adv">Project / cybersecurity detail</span>
+            </div>
+            <dl class="adv-dl">
+                <dt>Scam category</dt>
+                <dd>{{ category if category else '—' }}</dd>
+                <dt>Risk score (0–100)</dt>
+                <dd>{{ score }}</dd>
+                <dt>Risk band</dt>
+                <dd>{{ band }}</dd>
+            </dl>
+            <h3 class="adv-sub">Warning signs (rule hits)</h3>
+            {% if ws and ws | length > 0 %}
+            <ul class="check-list">
+                {% for line in ws %}
+                <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="muted">No warning-sign rules fired for this text.</p>
+            {% endif %}
+
+            {% if ind and ind | length > 0 %}
+            <h3 class="adv-sub">Matched indicators</h3>
+            <ul class="adv-indicators">
+                {% for row in ind %}
+                <li><code>{{ row }}</code></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <h3 class="adv-sub">Why the system flagged this message</h3>
+            <p class="adv-explain">
+                S.A.F.E. uses a <strong>rule-based engine</strong> in <code>app.py</code>: it adds points when it finds patterns such as suspicious links,
+                urgency wording, requests for codes or passwords, money or investment language, names of trusted brands,
+                emotional pressure, or “too good to be true” offers. Your score ({{ score }}) is the total after those rules, capped at 100.
+                The category is chosen from keyword groups with the strongest match.
+            </p>
+            {% if tips and tips | length > 0 %}
+            <h3 class="adv-sub">Extra safety tips</h3>
+            <ul class="check-list">
+                {% for tip in tips %}
+                <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
+
+        <p class="next-wrap">
+            <a href="{{ url_for('index') }}" class="button-primary button-primary--large button-primary--link">Analyse another message</a>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <small>Prototype only – always use your own judgment and official advice.</small>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>

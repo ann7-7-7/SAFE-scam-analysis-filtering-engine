@@ -1,0 +1,31 @@
+S.A.F.E Supervised NLP Baseline (Logistic Regression + TF-IDF)
+This baseline is separate from the live rule-based web checker.
+
+Dataset path: C:\Users\User1\SAFE\SAFE-scam-analysis-filtering-engine\data\safe_dataset.csv
+Total samples: 140
+Full dataset class distribution: safe: 60, scam: 80
+
+Train samples: 112 (safe: 48, scam: 64)
+Test samples:  28 (safe: 12, scam: 16)
+
+Hyperparameters: LogisticRegression(max_iter=1000, class_weight='balanced')
+Split: stratified train_test_split(test_size=0.2, random_state=42)
+
+Accuracy:  0.8929
+Precision (scam): 0.8421
+Recall (scam):    1.0000
+F1-score (scam):  0.9143
+
+Classification report:
+              precision    recall  f1-score   support
+
+        safe       1.00      0.75      0.86        12
+        scam       0.84      1.00      0.91        16
+
+    accuracy                           0.89        28
+   macro avg       0.92      0.88      0.89        28
+weighted avg       0.91      0.89      0.89        28
+
+Confusion matrix (rows=true, cols=pred; order=[safe, scam]):
+[[ 9  3]
+ [ 0 16]]
