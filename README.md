@@ -81,7 +81,7 @@ This repository’s **running application** is a **heuristic (rule-based) protot
 
 ---
 
-## Current approach (for reports and viva)
+## Current approach
 
 The engine **does not “understand” language like a human**. It **adds points** when it finds indicators such as:
 
@@ -95,7 +95,7 @@ The engine **does not “understand” language like a human**. It **adds points
 
 The **total score** is **capped at 100** and mapped to a **risk band**. A **category** is chosen from keyword groups with the strongest match, with fallbacks such as **Likely Safe** or **Unknown/Suspicious** when signals are weak or mixed.
 
-You can walk through the logic in **`prototype/app.py`** (comments are written to support a viva explanation).
+You can walk through the logic in **`prototype/app.py`** (comments are included to explain the scoring flow clearly).
 
 ---
 
