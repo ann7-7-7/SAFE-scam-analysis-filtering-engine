@@ -1,0 +1,27 @@
+Meeting Record - 4
+Date: May 30, 2026
+Supervisor: Badis Aoun
+Notetaker: Anjali Karki Chhetri
+Topics Discussed:
+
+
+Discussed final demo and artefact preparation.
+
+
+Reviewed how to present the working S.A.F.E website during the demo.
+
+
+Asked questions about how to explain features that were planned but not fully implemented.
+
+
+Discussed how to present the rule-based checker, supervised NLP baseline and future work clearly.
+
+
+Clarified that DistilBERT, LIME/SHAP and full model integration should be explained as future enhancements.
+
+
+Discussed the importance of showing testing evidence, diagrams, GitHub evidence and usability feedback.
+
+
+Outcome:
+Confirmed the demo structure and agreed to present S.A.F.E as a working explainable scam-checking artefact, supported by testing evidence and a supervised NLP baseline. Future work will include model integration, larger datasets, DistilBERT, LIME/SHAP and wider usability testing.
